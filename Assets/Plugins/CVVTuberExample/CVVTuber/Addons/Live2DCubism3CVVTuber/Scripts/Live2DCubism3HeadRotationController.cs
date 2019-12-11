@@ -57,10 +57,6 @@ namespace CVVTuber.Live2DCubism3
         protected Vector3 oldHeadEulerAngle;
 
 
-        private float dampVelocityX = 50.0F;
-        private float dampVelocityY = 50.0F;
-        private float dampVelocityZ = 50.0F;
-
         #region CVVTuberProcess
 
         public override string GetDescription ()
@@ -75,17 +71,9 @@ namespace CVVTuber.Live2DCubism3
             NullCheck (headRotationGetterInterface, "headRotationGetter");
             NullCheck (target, "target");
 
-            // paramAngleX = target.Parameters.FindById("PARAM_ANGLE_X");
-            // paramAngleY = target.Parameters.FindById("PARAM_ANGLE_Y");
-            // paramAngleZ = target.Parameters.FindById("PARAM_ANGLE_Z");
-
-            // paramAngleX = target.Parameters.FindById("ParamAngleX");
-            // paramAngleY = target.Parameters.FindById("ParamAngleY");
-            // paramAngleZ = target.Parameters.FindById("ParamAngleZ");
-
-            paramAngleX = target.Parameters[0];
-            paramAngleY = target.Parameters[1];
-            paramAngleZ = target.Parameters[2];
+            paramAngleX = target.Parameters.FindById("ParamAngleX");
+            paramAngleY = target.Parameters.FindById("ParamAngleY");
+            paramAngleZ = target.Parameters.FindById("ParamAngleZ");
         }
 
         public override void LateUpdateValue ()
@@ -116,17 +104,9 @@ namespace CVVTuber.Live2DCubism3
             float y = _x * 2f;
             float z = -_z * 2f;
 
-            // Debug.Log($"AngleX = {x}");
-
-            x = Mathf.SmoothDamp(paramAngleX.Value, x, ref dampVelocityX, 0.2F);
-            y = Mathf.SmoothDamp(paramAngleY.Value, y, ref dampVelocityY, 0.2F);
-            z = Mathf.SmoothDamp(paramAngleZ.Value, z, ref dampVelocityZ, 0.2F);
-
             paramAngleX.Value = x;
             paramAngleY.Value = y;
             paramAngleZ.Value = z;
-
-            // Debug.Log($"[Damp] AngleX = {x}, dampVelocityX = {dampVelocityX},");
 
             oldHeadEulerAngle = headEulerAngles;
         }

@@ -1,5 +1,9 @@
 ## Live2D Cubism Core Changelog
 
+*2019-04-09*
+- Support Universal Windows Platform for Windows Store application.
+
+
 *2019-01-31*
 
 - Added API to get the parent Part of the specified Part.
@@ -10,6 +14,7 @@
 - Upgrade Core version to 03.03.0000 (50528256). This upgrade is following Cubism Editor 3.3 features.
 - [Native, 3.3 Support] Support new Warp Deformer features.
 - [Native] Add new function: `csmGetPartParentPartIndices`
+
 
 *2018-08-22*
 

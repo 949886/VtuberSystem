@@ -24,11 +24,6 @@ namespace CVVTuber.Live2DCubism3
         protected CubismParameter paramMouthForm;
 
 
-        private float LeftEyeOpenRatio = 0.0f;
-        private float RightEyeOpenRatio = 0.0f;
-        private float dampVelocityLeftEye = 50.0F;
-        private float dampVelocityRightEye = 50.0F;
-
         #region CVVTuberProcess
 
         public override string GetDescription ()
@@ -42,8 +37,8 @@ namespace CVVTuber.Live2DCubism3
                 return;
 
             if (enableEye) {
-                paramEyeLOpen.Value = Mathf.Lerp (0.0f, 1.0f, LeftEyeOpenRatio);
-                paramEyeROpen.Value = Mathf.Lerp(0.0f, 1.0f, RightEyeOpenRatio);
+                paramEyeLOpen.Value = Mathf.Lerp (0.0f, 1.0f, EyeParam);
+                paramEyeROpen.Value = Mathf.Lerp(0.0f, 1.0f, EyeParam);
             }
 
             if (enableBrow) {
@@ -68,13 +63,6 @@ namespace CVVTuber.Live2DCubism3
 
             NullCheck (live2DCubism3Model, "live2DCubism3Model");
 
-            // paramEyeLOpen = live2DCubism3Model.Parameters.FindById("PARAM_EYE_L_OPEN");
-            // paramEyeROpen = live2DCubism3Model.Parameters.FindById("PARAM_EYE_R_OPEN");
-            // paramBrowLY = live2DCubism3Model.Parameters.FindById("PARAM_BROW_L_Y");
-            // paramBrowRY = live2DCubism3Model.Parameters.FindById("PARAM_BROW_R_Y");
-            // paramMouthOpenY = live2DCubism3Model.Parameters.FindById("PARAM_MOUTH_OPEN_Y");
-            // paramMouthForm = live2DCubism3Model.Parameters.FindById("PARAM_MOUTH_FORM");
-
             paramEyeLOpen = live2DCubism3Model.Parameters.FindById("ParamEyeLOpen");
             paramEyeROpen = live2DCubism3Model.Parameters.FindById("ParamEyeROpen");
             paramBrowLY = live2DCubism3Model.Parameters.FindById("ParamBrowLForm");
@@ -86,42 +74,20 @@ namespace CVVTuber.Live2DCubism3
         protected override void UpdateFaceAnimation (List<Vector2> points)
         {
             if (enableEye) {
-                // float eyeOpen = (GetLeftEyeOpenRatio (points) + GetRightEyeOpenRatio (points)) / 2.0f;
+                float eyeOpen = (GetLeftEyeOpenRatio (points) + GetRightEyeOpenRatio (points)) / 2.0f;
                 //Debug.Log ("eyeOpen " + eyeOpen);
 
-                float leftEyeOpen = GetLeftEyeOpenRatio (points);
-                float rightEyeOpen = GetRightEyeOpenRatio (points);
+                if (eyeOpen >= 0.88f) {
+                    eyeOpen = 1.0f;
+                } else if (eyeOpen >= 0.45f) {
+                    eyeOpen = 0.5f;
+                } else if (eyeOpen >= 0.25f) {
+                    eyeOpen = 0.2f;
+                } else {
+                    eyeOpen = 0.0f;
+                }
 
-                LeftEyeOpenRatio = Mathf.SmoothDamp(LeftEyeOpenRatio, leftEyeOpen, ref dampVelocityLeftEye, 0.1F);
-                RightEyeOpenRatio = Mathf.SmoothDamp(RightEyeOpenRatio, rightEyeOpen, ref dampVelocityRightEye, 0.1F);
-
-                // LeftEyeOpenRatio = Mathf.Lerp (LeftEyeOpenRatio, leftEyeOpen, eyeLeapT);
-                // RightEyeOpenRatio =
-
-                // Debug.Log ($"leftEyeOpen = {leftEyeOpen}  rightEyeOpen = {rightEyeOpen}");
-
-                // if (leftEyeOpen >= 0.7f) {
-                //     leftEyeOpen = 1.0f;
-                // } else if (leftEyeOpen >= 0.5f) {
-                //     leftEyeOpen = 0.5f;
-                // } else if (leftEyeOpen >= 0.4f) {
-                //     leftEyeOpen = 0.2f;
-                // } else {
-                //     leftEyeOpen = 0.0f;
-                // }
-
-                // if (rightEyeOpen >= 0.7f) {
-                //     rightEyeOpen = 1.0f;
-                // } else if (rightEyeOpen >= 0.5f) {
-                //     rightEyeOpen = 0.5f;
-                // } else if (rightEyeOpen >= 0.4f) {
-                //     rightEyeOpen = 0.2f;
-                // } else {
-                //     rightEyeOpen = 0.0f;
-                // }
-
-                // LeftEyeOpenRatio = Mathf.Lerp (LeftEyeOpenRatio, leftEyeOpen, eyeLeapT);
-                // RightEyeOpenRatio = Mathf.Lerp (RightEyeOpenRatio, rightEyeOpen, eyeLeapT);
+                EyeParam = Mathf.Lerp (EyeParam, eyeOpen, eyeLeapT);
             }
 
             if (enableBrow) {
