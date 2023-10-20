@@ -114,6 +114,12 @@ namespace Bilibili.Live
 
         private void ReceiveDanmakuHandler(object sender, ReceivedDanmakuArgs args)
         {
+            Debug.Log($@"
+Danmaku received 
+MsgType: {args.Danmaku.MsgType}
+UserName: {args.Danmaku.UserName}
+CommentText: {args.Danmaku.CommentText}
+");
             var message = MessageUtil.Parse(args.Danmaku);
             if (message != null)
                 danmakuHandler?.Invoke(sender, message);
