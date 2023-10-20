@@ -65,3 +65,6 @@ crashlytics-build.properties
 /Assets/Plugins/OpenCVForUnity
 /Assets/Plugins/DlibFaceLandmarkDetector
 
+/Assets/Plugins/OpenCVForUnity/Extra/exclude_contrib/iOS
+/Assets/Plugins/OpenCVForUnity/Plugins/iOS
+
