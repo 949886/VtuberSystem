@@ -13,7 +13,7 @@ scopes = {
 	"currentGroup.8C24D059" = "all"
 	"last_search.310DEAF1" = "p: dir=\"CC0 Sounds\" "
 	"OpenInspectorPreview.310DEAF1" = "0"
-	"currentGroup.310DEAF1" = ""
+	"currentGroup.310DEAF1" = "asset"
 }
 providers = {
 	adb = {
