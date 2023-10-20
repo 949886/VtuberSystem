@@ -21,7 +21,7 @@ namespace Bilibili.Live
             LiveMessage liveMessage = null;
             switch (type)
             {
-//                case LiveMessage.Type.Danmaku: liveMessage = json.ToObject<DanmakuMessage>(); break;
+                case LiveMessage.Type.Danmaku: liveMessage = json.ToObject<DanmakuMessage>(); break;
                 case LiveMessage.Type.Gift: liveMessage = json["data"].ToObject<GiftMessage>(); break;
                 default: break;
             }

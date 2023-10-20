@@ -128,7 +128,7 @@ namespace CVVTuber
         protected virtual float GetLeftEyeOpenRatio (List<Vector2> points)
         {
             float ratio = distanceOfLeftEyeHeight / distanceOfNoseHeight;
-            Debug.Log ("raw LeftEyeOpen ratio: " + ratio);
+            //Debug.Log ("raw LeftEyeOpen ratio: " + ratio);
             return Mathf.InverseLerp (0.003f, 0.02f, ratio);
         }
 
