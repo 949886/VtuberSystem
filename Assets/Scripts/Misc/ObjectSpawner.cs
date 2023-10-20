@@ -1,6 +1,6 @@
 ﻿//
 //  ObjectSpawner.cs
-//  VupSystem
+//  VtuberSystem
 //
 //  Created by LunarEclipse on 2019-08-11 05:23:53.
 //  Copyright © 2019 LunarEclipse. All rights reserved.

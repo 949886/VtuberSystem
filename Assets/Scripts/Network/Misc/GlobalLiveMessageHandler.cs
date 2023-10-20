@@ -1,6 +1,6 @@
 ﻿//
 //  GlobalLiveMessageHandler.cs
-//  VupSystem
+//  VtuberSystem
 //
 //  Created by LunarEclipse on 2019-08-11 04:47:54.
 //  Copyright © 2019 LunarEclipse. All rights reserved.

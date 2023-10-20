@@ -1,6 +1,6 @@
 ﻿//
 //  LiveManagerr.cs
-//  VupSystem
+//  VtuberSystem
 //
 //  Created by LunarEclipse on 2019-08-10 23:29:52.
 //  Copyright © 2019 LunarEclipse. All rights reserved.

@@ -1,6 +1,6 @@
 ﻿//
 //  DispatchQueue.cs
-//  VupSystem
+//  VtuberSystem
 //
 //  Created by LunarEclipse on 2019-08-13 16:47:15.
 //  Copyright © 2019 LunarEclipse. All rights reserved.

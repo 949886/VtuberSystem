@@ -1,6 +1,6 @@
 ﻿//
 //  WelcomeMessage.cs
-//  VupSystem
+//  VtuberSystem
 //
 //  Created by LunarEclipse on 2019-08-10 20:16:14.
 //  Copyright © 2019 LunarEclipse. All rights reserved.

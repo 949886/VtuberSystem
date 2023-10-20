@@ -1,6 +1,6 @@
 ﻿//
 //  EnumUtils.cs
-//  VupSystem
+//  VtuberSystem
 //
 //  Created by LunarEclipse on 2019-08-09 07:07:20.
 //  Copyright © 2019 LunarEclipse. All rights reserved.

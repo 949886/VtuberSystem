@@ -1,6 +1,6 @@
 ﻿//
 //  DanmakuMessage.cs
-//  VupSystem
+//  VtuberSystem
 //
 //  Created by LunarEclipse on 2019-08-08 09:24:33.
 //  Copyright © 2019 LunarEclipse. All rights reserved.
