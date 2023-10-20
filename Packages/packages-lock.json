@@ -185,6 +185,15 @@
       },
       "hash": "66ac11773b3ddac0502fad69e9e32011f780036b"
     },
+    "live2d": {
+      "version": "https://github.com/stellar-eclipse/Unity-Live2D.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.ugui": "1.0.0"
+      },
+      "hash": "4cad00c3c19583e60d0c0e2c23fd0799591ccac3"
+    },
     "opencv": {
       "version": "https://github.com/stellar-eclipse/Unity-OpenCV.git",
       "depth": 0,
